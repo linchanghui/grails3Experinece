@@ -14,7 +14,7 @@
 + grails3里compile "org.grails.plugins:marshallers:0.5"这个插件不再存在，可以直接使用registerObjectMarshaller
 + [grails3里实现controller和service里统一的错误返回机制](https://github.com/linchanghui/grails3Experinece/blob/master/grails3%E9%87%8C%E5%AE%9E%E7%8E%B0controller%E5%92%8Cservice%E9%87%8C%E7%BB%9F%E4%B8%80%E7%9A%84%E9%94%99%E8%AF%AF%E8%BF%94%E5%9B%9E%E6%9C%BA%E5%88%B6.md)
 + grails3里带环境变量的运行系统命令的方式
-+ respond domain.errors, [view:'create'] 里会覆盖httpresponse里状态码
++ [respond domain.errors, [view:'create'] 里会覆盖httpresponse里状态码](https://github.com/linchanghui/grails3Experinece/blob/master/respond%E9%87%8C%E4%BC%9A%E8%A6%86%E7%9B%96httpresponse%E9%87%8C%E7%8A%B6%E6%80%81%E7%A0%81.md)
 + grails domain配置是否表继承的属性tablePerHierarchy
 + @Cacheable注解的用法
 + @GrailsTypeChecked(TypeCheckingMode.SKIP)避免静态代码检查
