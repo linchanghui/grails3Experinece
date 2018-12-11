@@ -2,16 +2,16 @@
 
 ## 期望
 ### 想要传时间类型的参数，在get请求中传入接口
-![](.grails controller直接接受Date类型的对象_images\017df033.png)
+![](.grails controller直接接受Date类型的对象_images/017df033.png)
 ### 接口定义如下
-![](.grails controller直接接受Date类型的对象_images\50ea7cc0.png)
+![](.grails controller直接接受Date类型的对象_images/50ea7cc0.png)
 
 特意一个用springframework的注解声明，一个用grails.web的注解声明，
 结果都无法正常得到请求值，函数里获得的beginDate和endDate对象，都是当前时间。
 并且编译时有告警
-![](.grails controller直接接受Date类型的对象_images\a08e6f1d.png)
+![](.grails controller直接接受Date类型的对象_images/a08e6f1d.png)
 ### 尝试去掉注解
-![](.grails controller直接接受Date类型的对象_images\e2bd3f1d.png)
+![](.grails controller直接接受Date类型的对象_images/e2bd3f1d.png)
 问题依旧，告警依旧 。
 
 跟同事讨论后，有一个猜想
@@ -44,7 +44,7 @@ dateFormats:
 
 查询文档，在http://docs.grails.org/latest/guide/theWebLayer.html#dataBinding 看到了以下说明
 
-![](.grails controller直接接受Date类型的对象_images\d362a876.png)
+![](.grails controller直接接受Date类型的对象_images/d362a876.png)
 
 所以除了，八个基础类型和它们对应的封装类（int->Integer）还有String以外。其他都属于command object分类，所以Date也属于这一类。文章里只说了基础类型
 
@@ -58,7 +58,7 @@ dateFormats:
 
 
 grails command object data binding
-![](.grails controller直接接受Date类型的对象_images\29a5a7ef.png)
+![](.grails controller直接接受Date类型的对象_images/29a5a7ef.png)
 
 在initializeCommandObject这个函数，观察到逻辑，当是domain类型的数据时，把request里的参数读取出来，准备成entityIdentifierValue为后面的data binding做准备。
 
@@ -70,7 +70,7 @@ entityIdentifierValue = webRequest?.getParams().getIdentifier()
 
 当不是domain,也不是String时，entityIdentifierValue就没有值。就走了最后最简单的一步newInstance()的逻辑
 
-![](.grails controller直接接受Date类型的对象_images\58076e28.png)
+![](.grails controller直接接受Date类型的对象_images/58076e28.png)
 
 ## 结论
 所以结论就是目前的grails是不能直接传一个Date,除非用一个domain去包装（wrapper object）,成为一个command object。这也就解释了为什么domain的Date类型的字段，可以被数据绑定成功。这部分的内容就是（data binding wrapper object）
