@@ -19,7 +19,7 @@
 + @Cacheable注解的用法
 + @GrailsTypeChecked(TypeCheckingMode.SKIP)避免静态代码检查
 + quartz里访问ont to many的外键关系如何解决LazyInitializationException的异常
-+ grails url加lang参数，会自动设置语言的源码实现堆栈
++ [grails url加lang参数，会自动设置语言的源码实现堆栈](https://github.com/linchanghui/grails3Experinece/blob/master/grails%20url%E5%8A%A0lang%E5%8F%82%E6%95%B0%EF%BC%8C%E4%BC%9A%E8%87%AA%E5%8A%A8%E8%AE%BE%E7%BD%AE%E8%AF%AD%E8%A8%80%E7%9A%84%E6%BA%90%E7%A0%81%E5%AE%9E%E7%8E%B0%E5%A0%86%E6%A0%88.md)
 + grails3结合olingo odata2的实现
 + [grails controller直接接受Date类型的对象](https://github.com/linchanghui/grails3Experinece/blob/master/grails%20controller%E7%9B%B4%E6%8E%A5%E6%8E%A5%E5%8F%97Date%E7%B1%BB%E5%9E%8B%E7%9A%84%E5%AF%B9%E8%B1%A1.md)
 
